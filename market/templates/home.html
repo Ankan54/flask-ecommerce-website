@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Unique Super Market
+{% endblock %}
+
+{% block content %}
+
+<body class='text-center'>
+    <h1 class="display-4 font-weight-normal">Unique Super Market</h1>
+    <p class="lead font-weight-normal">Start your shopping by clicking the link below</p>
+    <a class="btn btn-primary" href="{{ url_for('market_page') }}">Enter the Market</a>
+
+    <div class="product-device box-shadow d-none d-md-block"></div>
+    <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+</body>
+{% endblock %}
