@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Admin page
+{% endblock %}
+
+{% block content %}
+
+<body class='text-center'>
+    <div class="checkbox mb-3">
+        <h6>Click below to add new items</h6>
+        <a class="btn btn-sm btn-secondary" href="{{ url_for('add_item') }}">Stock Management</a>
+    </div>
+</body>
+{% endblock %}
