@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block title %} Market Page {% endblock %} {% block content %}
+
+<div class="row" style="margin-top:20px; margin-left:1px; margin-right:2px">
+    <div class="col-7">
+        <h2>Available items on the Market</h2>
+        <br>
+        <table class="table table-hover table-striped table-dark w-auto">
+            <caption>List of items</caption>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Barcode</th>
+                    <th scope="col" style="width: 15%">Price</th>
+                    <th scope="col" style="width: 10%">Options</th>
+                </tr>
+            </thead>
+            <tbody> {% for item in items %}
+                {% include 'includes/items_modal.html' %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.barcode }}</td>
+                    <td><i class="fa fa-inr"></i> {{ item.price }}</td>
+                    <td>
+                        <button class="btn btn-info" data-toggle='modal'
+                            data-target='#Modal-MoreInfo-{{ item.id }}'>Info</button>
+                        <button class="btn btn-success" data-toggle='modal'
+                            data-target='#Modal-PurchaseConfirm-{{ item.id }}'>Buy</button>
+                    </td>
+                </tr> {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class='col-5'>
+        <h2>Owned Items</h2>
+        <br>
+        <table class="table table-hover table-striped table-dark w-auto">
+            <caption>List of owned items</caption>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col" style="width: 20%">Price</th>
+                    <th scope="col" style="width: 10%">Options</th>
+                </tr>
+            </thead>
+            <tbody> {% for owned_item in owned_items %}
+                {% include 'includes/owned_items_modal.html' %}
+                <tr>
+                    <td>{{ owned_item.id }}</td>
+                    <td>{{ owned_item.name }}</td>
+                    <td><i class="fa fa-inr"></i> {{ owned_item.price }}</td>
+                    <td>
+                        <button class="btn btn-danger" data-toggle='modal'
+                            data-target='#Modal-SellConfirm-{{ owned_item.id }}'>Sell</button>
+                    </td>
+                </tr> {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
