@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Stock page
+{% endblock %}
+
+{% block content %}
+
+<body class='text-center'>
+    <div class='container'>
+        <form method="POST" class="form-register" style="color:rgb(209, 200, 200)">
+            {{ form.hidden_tag() }}
+            <h2 class="h3 mb-3 font-weight-normal">
+                Add new item
+            </h2>
+            <br>
+            {{ form.name.label() }}
+            {{ form.name(class="form-control", placeholder="Item Name") }}
+
+            {{ form.price.label() }}
+            {{ form.price(class="form-control", placeholder="Item Price") }}
+
+            {{ form.barcode.label() }}
+            {{ form.barcode(class="form-control", placeholder="Barcode") }}
+
+            {{ form.description.label() }}
+            {{ form.description(class="form-control", placeholder="Item Description") }}
+
+            <br>
+
+            {{ form.add_item(class="btn btn-lg btn-block btn-primary") }}
+        </form>
+    </div>
+</body>
+{% endblock %}
