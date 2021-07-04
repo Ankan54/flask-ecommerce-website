@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+Add Money
+{% endblock %}
+
+{% block content %}
+
+<body class='text-center'>
+    <div class='container'>
+        <form method="POST" class="form-register" style="color:rgb(209, 200, 200)">
+            {{ form.hidden_tag() }}
+            <h3 class="h3 mb-3 font-weight-normal">
+                Enter amount to add to wallet
+            </h3>
+            <br>
+            {{ form.amount(class="form-control", placeholder="Amount") }}
+            <small>Enter amount in the multiple of 100</small>
+            <br>
+
+            {{ form.add_money(class="btn btn-lg btn-block btn-primary") }}
+
+        </form>
+    </div>
+</body>
+{% endblock %}
