@@ -1,26 +1,39 @@
 {% extends 'base.html' %} {% block title %} Market Page {% endblock %} {% block content %}
+<style>
+    table tbody {
+  display: block;
+  max-height: 400px;
+  overflow-y: scroll;
+}
 
+table thead, table tbody tr{
+  display: table;
+  width: 100%;
+  max-width: 1000px;
+  table-layout: fixed;
+}
+</style>
 <div class="row" style="margin-top:20px; margin-left:1px; margin-right:2px">
     <div class="col-7">
-        <h2>Available items on the Market</h2>
+        <h3>Available items on the Market</h3>
         <br>
-        <table class="table table-hover table-striped table-dark w-auto">
-            <caption>List of items</caption>
+        <table id = table class="table table-hover table-striped table-dark table-responsive-sm w-auto">
+            <caption>List of available items</caption>
             <thead>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Barcode</th>
-                    <th scope="col" style="width: 15%">Price</th>
-                    <th scope="col" style="width: 10%">Options</th>
+                    <th scope="col" >Barcode</th>
+                    <th scope="col" >Price</th>
+                    <th scope="col">Options</th>
                 </tr>
             </thead>
             <tbody> {% for item in items %}
                 {% include 'includes/items_modal.html' %}
                 <tr>
                     <td>{{ item.id }}</td>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.barcode }}</td>
+                    <td style="word-wrap:initial; width:25%">{{ item.name }}</td>
+                    <td style="word-wrap:break-word">{{ item.barcode }}</td>
                     <td><i class="fa fa-inr"></i> {{ item.price }}</td>
                     <td>
                         <button class="btn btn-info" data-toggle='modal'
@@ -33,16 +46,16 @@
         </table>
     </div>
     <div class='col-5'>
-        <h2>Owned Items</h2>
+        <h3>Owned Items</h3>
         <br>
-        <table class="table table-hover table-striped table-dark w-auto">
+        <table class="table table-hover table-striped table-dark table-responsive-sm w-auto">
             <caption>List of owned items</caption>
             <thead>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
-                    <th scope="col" style="width: 20%">Price</th>
-                    <th scope="col" style="width: 10%">Options</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Options</th>
                 </tr>
             </thead>
             <tbody> {% for owned_item in owned_items %}
