@@ -1,5 +1,7 @@
 # flask-ecommerce-website
 E-Commerce website developed using Python and Flask framework  
+application deployed using pythonanywhere.com    
+application link: http://ankanbera.pythonanywhere.com/
 to generate secret key,  
 ```
 >>> import secrets
