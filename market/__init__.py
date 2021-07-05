@@ -1,4 +1,3 @@
-import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -6,8 +5,8 @@ from flask_login import LoginManager
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('sqlite:///market.db')
-app.config['SECRET_KEY'] = os.environ.get('7c8154da4c30935e05f8b419')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
+app.config['SECRET_KEY'] = #replace with a secret key
 db= SQLAlchemy(app)
 bcrypt= Bcrypt(app)
 login_manager= LoginManager(app)
